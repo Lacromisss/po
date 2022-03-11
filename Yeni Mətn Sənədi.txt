@@ -1,0 +1,85 @@
+ using System;
+
+namespace ConsoleApp12
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Mustafa[] a = new Mustafa[10];
+            a[0] = new Mustafa("kolbasa", "elanov", 3500);
+            a[1] = new Mustafa("sosisqa", "halal nov", 5500);
+            a[2] = new Mustafa("alma", "yasil reng", 4500);
+            a[3] = new Mustafa("cola", "zero", 6500);
+            a[4] = new Mustafa("komputer", "ios", 1500);
+            a[5] = new Mustafa("kompyer", "acer", 2500);
+            a[6] = new Mustafa("planjet", "apple", 3500);
+            a[7] = new Mustafa("telefon", "apple", 1000);
+            a[8] = new Mustafa("fanta", "adi", 1200);
+            a[9] = new Mustafa("yoqurt", "meyveli", 1200);
+
+            Console.WriteLine("deyisdirilmemis array");
+            foreach (var item in a)
+            {
+                Console.WriteLine(item.Musi());
+            }
+            Console.WriteLine("deyisdirilmis array");
+              Mustafa[]  newww=  Filterbyclass(a, 3000, 4000);
+            foreach (var item in newww)
+            {
+                Console.WriteLine(item.Musi());
+            }
+
+
+
+
+
+        }
+        
+        static Mustafa[] Filterbyclass( Mustafa[]a, double b, double c)
+
+        {
+            int sayac = 0;
+            Mustafa[] hazirliq1 = new Mustafa[a.Length];
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                if (a[i].Price >= b && a[i].Price <= c) ;
+                {
+                     hazirliq1[sayac]=a[i];
+                    sayac++;
+                }
+            }
+            Mustafa[] hazirliq2= new Mustafa[sayac];
+            for (int i = 0; i < sayac; i++)
+            {
+                hazirliq2[i] = hazirliq1[i];
+            }
+            return hazirliq2;
+
+
+
+        }
+        public class Mustafa
+        {
+            public Mustafa(string name, string brandname, int price)
+            {
+                Name = name;
+                Brandname = brandname;
+                Price = price;
+            }
+            public string Name;
+            public string Brandname;
+            public int Price;
+            public string Musi()
+            {
+
+                return this.Name + this.Brandname + this.Price;     
+
+
+            }
+            
+        }
+
+    }
+}
